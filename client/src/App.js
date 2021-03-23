@@ -1,12 +1,28 @@
 
 import './App.css';
-import {Route} from 'react-router-dom'
-import Home from './components/Home/Home.js'
+import {Route, Switch} from 'react-router-dom'
+import HomeGuest from './components/HomeGuest/HomeGuest'
+import Navigation from './components/Navigation/Navigation'
+import AboutUs from './components/AboutUs/AboutUs'
+import ForUs from './components/ForUs/ForUs'
+import Footer from './components/Footer/Footer'
+
 
 function App() {
   return (
     <div className="App">
-      <Route exact path="/" component ={Home}></Route>
+      <Navigation />
+    <Switch>
+  <Route exact path="/about-Us" component ={AboutUs}></Route>
+    {/* <Route exact path="/" component ={HomeGuest}></Route>
+
+    <Route exact path="/for-us" component ={ForUs}></Route> */}
+
+
+
+    </Switch>
+    <Footer/>
+     
     </div>
   );
 }
