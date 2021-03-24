@@ -1,8 +1,11 @@
 .about-section {
     padding: 50px;
     text-align: center;
-    background-color: #474e5d;
-    color: white;
+    background-color:rgb(247, 157, 84);
+    color:black;
+    
+    border-style: dashed;
+    
   }
 
   .column {
@@ -36,8 +39,9 @@
   }
 
   .authLinks{
-    background-color: black;
+    background-color: rgb(247, 157, 84);
     padding: 20px 20px;
+    border-radius: 100%;
   }
 .authLinks a {
   color: #f2f2f2;
@@ -51,4 +55,17 @@
 .authLinks a:hover {
   background-color: #ddd;
   color: black;
+}
+
+.background-page{
+  background-image: url("https://wallpaperaccess.com/full/1364719.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#town-info {
+  color: white;
+  font-weight: 500;
 }

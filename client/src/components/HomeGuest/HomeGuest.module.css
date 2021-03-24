@@ -1,0 +1,37 @@
+.home-page {
+    background-image: url("https://wallpaperaccess.com/full/1364719.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#h2-home-page {
+    color: black;
+    text-align: center;
+    margin: 30px;
+    
+}
+
+#landing-text {
+    color:black;
+    text-align: center;
+    margin: 50px;
+    
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 2px 5px;
+}
+
+#landing-text a {
+    color: rgb(22, 7, 88)
+}
+
+.home-info{
+    text-shadow: 2px 2px 5px red;
+    padding: 180px 50px 50px 50px;
+    
+    
+  
+
+}

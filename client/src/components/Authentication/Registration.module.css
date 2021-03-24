@@ -1,0 +1,46 @@
+
+.user-home {
+    
+    background-image: url("https://image.freepik.com/free-vector/speed-lines-copy-space-orange-background_23-2148546175.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.authForm label {
+    color: black;
+    margin-top: 10px;
+}
+
+.authForm input {
+    background-color: #1d2024;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 100%;
+    box-shadow: 1.5px 1.5px 1.5px black;
+    text-align: center;
+    color: darkorange;
+}
+
+.authForm {
+    position: absolute;
+    top: 20%;
+    left: 39%;
+    text-align: center;
+    font-size: 13pt;
+    width: 300px;
+    height: 260px;
+}
+
+#registerBtn {
+    margin-top: 15px;
+    color: #ff8c00;
+    border: 1px solid #ff8c00;
+    background-color: #212429;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 2px 2px 2px black;
+}
+
