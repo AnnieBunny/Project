@@ -3,12 +3,28 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { SECRET } = require('../config/config');
 
-const register = (username, password, amount) => {
+const register = (username, password) => {
 
-    let user = new User({ username, password,amount });
-    console.log(1111111)
-console.log(user);
-    return user.save();
+    let user = new User({ username, password, repeatPassword });
+
+    if (password !== repeatPassword) throw {message: 'Passwords should match.'};
+
+        if (password.length < 4) throw {message: 'Password should be at least 4 characters long.'};
+
+        if (username.length < 4) throw {
+            message: 'Username should be at least 4 characters long and should contains only english letters and digits'
+        };
+
+        let isAlreadyExists = await User.findOne({username});
+
+        if (isAlreadyExists) throw {message: 'User already exists!'};
+
+        let hash = await bcrypt.hash(password, SALT_ROUNDS);
+
+        let user = await new User({username, password: hash}).save();
+
+        return jwt.sign({_id: user._id, username: user.username}, SECRET);
+    
 };
 
 const login = async (username, password) => {
