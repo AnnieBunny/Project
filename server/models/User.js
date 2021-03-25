@@ -11,6 +11,7 @@ const userScheme = new mongoose.Schema({
         required: true,
         minlength: 6
     },
+    places: []
 
 });
 
