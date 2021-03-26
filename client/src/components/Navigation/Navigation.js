@@ -10,6 +10,8 @@ const Navigation = () => {
             ---------------------------------------
             <Link to="/top-Places">TOP Places</Link>
             <Link to="/my-places">My places</Link>
+            <Link to="/add-place">Add place</Link>
+
             
 
             <div className={styles["right-nav"]}>
