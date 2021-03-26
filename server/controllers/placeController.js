@@ -1,25 +1,20 @@
-const router = require('express').Router();
-const expenseService = require('../services/expenseService');
 
-router.get('/create', (req, res) => {
-    res.render('create');
-});
+const placeService = require('../services/placeService');
+
+
 
 
 router.post('/create', (req, res, next) => {
-    let { merchant, total, category, description,report } = req.body;
+    let { country, description, image } = req.body;
 
 
-    let expenseData = {
-        merchant,
-        total,
-        category,
+    let placeData = {
+        country,
         description,
-        report: Boolean(report),
-
+        image,
     };
     console.log(req.body)
-   expenseService.create(expenseData, req.user._id)
+    placeService.create(placeData, req.user._id)
         .then(() => res.redirect('/'))
         // .catch(() => res.status(500).end())
         .catch(next)

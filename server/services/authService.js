@@ -3,9 +3,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { SECRET } = require('../config/config');
 
-const register = (username, password) => {
+const register = async (username, password) => {
 
-    let user = new User({ username, password, repeatPassword });
 
     if (password !== repeatPassword) throw {message: 'Passwords should match.'};
 
