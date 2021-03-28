@@ -15,6 +15,7 @@
 .authForm label {
     color: black;
     margin-top: 10px;
+    font-weight: 600;
 }
 
 .authForm input {

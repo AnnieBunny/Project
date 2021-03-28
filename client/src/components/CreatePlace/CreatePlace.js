@@ -4,39 +4,34 @@ import styles from './CreatePlace.module.css'
 const CreatePlace = () => {
 
     return (
-        <div className={styles["backgroundImg"]}>
-        <section className={styles["create"]}>
-            <form >
-                <fieldset>
-                    <legend>Add new dream place</legend>
-                    <p className={styles["field"]}>
-                        <label htmlFor="country">Country</label>
-                        <span className="input">
-                            <input type="text" name="country" id="country" placeholder="Country" />
-                            <span className={styles["actions"]}></span>
-                        </span>
-                    </p>
-                    <p className={styles["field"]}>
-                        <label htmlFor="description">Description</label>
-                        <span className="input">
-                            <textarea rows="4" cols="45" type="text" name="description" id="description"
-                                placeholder="Description"></textarea>
-                            <span className={styles["actions"]}></span>
-                        </span>
-                    </p>
-                    <p className={styles["field"]}>
-                        <label htmlFor="image">Image</label>
-                        <span className="input">
-                            <input type="text" name="imageURL" id="image" placeholder="Image" />
-                            <span className="actions"></span>
-                        </span>
-                    </p>
-                   
-                    <input className={styles["button"]} type="submit" value="Add place" />
-                </fieldset>
+        <div className={styles["backround-pic"]}>
+        <div>
+        <div className={styles["placeForm"]}>
+            <form  method="POST">
+                <label htmlFor="country">Country </label>
+                <br/>
+                <input type="country" name="country"/>
+                <br/>
+
+                <label htmlFor="description">Description</label>
+                <br/>
+                <textarea type="text"
+                       name="description"/>
+                <br/>
+
+                <label htmlFor="imageUrl">ImageUrl </label>
+                <br/>
+                <input type="text" name="imageUrl"/>
+                <br/>
+
+                <input id="submitPlace" type="submit"/>
+                <p className="error-notification"></p>
+
             </form>
-        </section>
         </div>
+    </div>
+
+    </div>
     )
 }
 
