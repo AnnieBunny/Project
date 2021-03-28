@@ -3,20 +3,23 @@ const mongoose = require('mongoose');
 
 const placeScheme = new mongoose.Schema({
 
+ 
     country: {
         type: String,
-        required : true
+        // required: true
     },
 
-    description : {
-        type: String, 
-        required : true
 
-    },
-
-    image : {
+    description: {
         type: String,
-        required : true,
+        // required: true,
+        minlength: [3, 'Description should be at least 3 charackters long'],
+        maxlength: [30, 'Description should be max 30 charackters long'],
+    },
+
+    imageUrl: {
+        type: String,
+        // required: true,
     },
  
 });
