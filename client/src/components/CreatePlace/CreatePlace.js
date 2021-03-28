@@ -2,12 +2,19 @@
 import styles from './CreatePlace.module.css'
 import * as placeService from '../../services/placeService'
 
-const CreatePlace = () => {
+const CreatePlace = ({
+    history
+}) => {
     const onCreatePlaceSbmit = (e) => {
         e.preventDefault();
 
         const {country, description, imageUrl} = e.target;
-        placeService.create(country.value, description.value, imageUrl.value);
+        placeService.create(country.value, description.value, imageUrl.value)
+        .then(() => {
+            history.push('/');
+        })
+        
+
         
 
     }

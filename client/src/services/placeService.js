@@ -1,9 +1,11 @@
-const url = 'http://localhost:4000/places';
+const url = 'http://localhost:4000';
 
+//http://localhost:4000/places/create
 
 //-------GET All PLACES---------//
 
 export const create = (country, description, imageUrl) =>{
+   
 
     let place = {
         country, 
@@ -11,11 +13,10 @@ export const create = (country, description, imageUrl) =>{
         imageUrl
     };
 
-    return fetch(`${url}/places`,{
+    return fetch(`${url}/places/create`,{
         method: "POST",
         headers:{ "Content-Type":"application/json"},
         body: JSON.stringify(place)
     })
-            .then()
-            .catch()
+        
 };
