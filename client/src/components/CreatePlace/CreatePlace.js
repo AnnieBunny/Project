@@ -2,6 +2,7 @@
 import styles from './CreatePlace.module.css'
 
 const CreatePlace = () => {
+    
 
     return (
         <div className={styles["backround-pic"]}>
