@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { SECRET } = require('../config/config');
 
-async function registerUser(email, password, amount) {
+async function registerUser(email, password) {
     let checkUser = await User.findOne({ email });
     if (checkUser) throw { message: 'These email is already taken.' };
 
