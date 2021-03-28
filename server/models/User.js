@@ -1,17 +1,23 @@
 const mongoose = require('mongoose');
 
 const userScheme = new mongoose.Schema({
-    username: {
+    id: mongoose.Types.ObjectId,
+    email: {
         type: String,
-        required: true,
+        required: ['Email is required'],
         unique: true
     },
     password: {
         type: String,
-        required: true,
-        minlength: 6
+        required: ['Password is required'],
+        minlength: [4, 'Password should be at least 4 characters long']
     },
-    places: []
+    places: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Place'
+        }
+    ]
 
 });
 
