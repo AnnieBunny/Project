@@ -1,14 +1,22 @@
 
 import styles from './CreatePlace.module.css'
+import * as placeService from '../../services/placeService'
 
 const CreatePlace = () => {
-    
+    const onCreatePlaceSbmit = (e) => {
+        e.preventDefault();
+
+        const {country, description, imageUrl} = e.target;
+        placeService.create(country.value, description.value, imageUrl.value);
+        
+
+    }
 
     return (
         <div className={styles["backround-pic"]}>
         <div>
         <div className={styles["placeForm"]}>
-            <form  method="POST">
+            <form onSubmit={onCreatePlaceSbmit}>
                 <label htmlFor="country">Country </label>
                 <br/>
                 <input type="country" name="country"/>
