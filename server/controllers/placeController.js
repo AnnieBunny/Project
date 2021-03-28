@@ -16,3 +16,28 @@ router.post('/create', (req,res) =>{
     })
     .catch(err => res.status(500).json(err))
 });
+
+router.get('/', (req, res) => {
+    Place.find()
+        .then(places=> {
+            res.status(200).json(places);
+        })
+        .catch(err => res.status(500).json(err))
+})
+
+
+
+router.get('/specific/:id', (req, res) => {
+    Place.findById(req.params.id)
+        .then(place => {
+            res.status(200).json(place);
+        })
+        .catch(err => console.log(err))
+});
+
+
+// router.post('/edit/:id', (req, res) => {
+
+// })
+
+module.exports = router;
