@@ -10,9 +10,9 @@ const Registration = () => {
             <div className={styles["authForm"]}>
 
                 <form >
-                    <label htmlFor="username">Username </label>
+                    <label htmlFor="email">Email</label>
                     <br/>
-                    <input type="text" name="username"/>
+                    <input type="text" name="email"/>
                     <br/>
 
                     <label htmlFor="password">Password </label>

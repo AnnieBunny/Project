@@ -7,8 +7,8 @@ const AboutUs = () => {
         <div className={styles["background-page"]}>
             <div className={styles["about-section"]}>
                 <h1>TravelLover</h1>
-                <p>TravelLover is website where you can find top destintions.</p>
-                <p className={styles["authLinks"]}>For more destintions: <Link to="/login">login</Link> / <Link to="/register">Register</Link> </p>
+                <p>TravelLover is website where you can make your dream travel list. :)</p>
+                <p className={styles["authLinks"]}>Let's get started: <Link to="/login">login</Link> / <Link to="/register">Register</Link> </p>
                 
             </div>
 
