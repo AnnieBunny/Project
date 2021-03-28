@@ -1,63 +1,18 @@
+const { Router } = require('express');
+const router = Router();
+
 
 const placeService = require('../services/placeService');
+const Place = require('../models/Place');
 
+router.post('/create', (req,res) =>{
+    const {country, description, imageUrl} = req.body;
+    console.log(req.body);
 
-
-
-router.post('/create', (req, res, next) => {
-    let { country, description, image } = req.body;
-
-
-    let placeData = {
-        country,
-        description,
-        image,
-    };
-    console.log(req.body)
-    placeService.create(placeData, req.user._id)
-        .then(() => res.redirect('/'))
-        // .catch(() => res.status(500).end())
-        .catch(next)
-});
-
-router.get('/:expenseId/report', (req, res, next) => {
- 
-    expenseService.getOne(req.params.expenseId)
- 
-        .then(expense => {
-
-            res.render('report',{ expense})
-            
-        })
-        .catch(next);
-
-});
-
-
-router.get('/:expenseId/delete', (req, res, next) => {
-
-    expenseService.deleteOne(req.params.expenseId)
-    .then(() => {
-        res.redirect('/');
+    placeService.create(req.body, req.params.id)
+    .then(place => {
+        console.log(place);
+        res.status(200).json(place);
     })
-    .catch(next)
-
-
+    .catch(err => res.status(500).json(err))
 });
-
-router.get('/expense/newAmount', (req, res, next) => {
-
-    const {amount} = req.body;
-
-    expenseService.updateOne(req.locals.user._id, amount)
-    .then(() => {
-
-        
-        res.render('/');
-    })
-    .catch(next)
-})
-
-
-
-module.exports = router;
