@@ -1,15 +1,30 @@
 
 import styles from './Registration.module.css'
+import * as authService from '../../services/authService'
 
 
-const Registration = () => {
+const Registration = ({history}) => {
+
+    const onRegistrationSbmit = (e) => {
+        e.preventDefault();
+
+        const {email, password, repeatPassword} = e.target;
+        authService.register(email.value, password.value, repeatPassword.value)
+        .then(() => {
+            history.push('/login');
+        })
+        
+
+        
+
+    }
 
     return (
         <div className={styles["user-home"]}>
         <div>
             <div className={styles["authForm"]}>
 
-                <form >
+                <form onSubmit={onRegistrationSbmit} >
                     <label htmlFor="email">Email</label>
                     <br/>
                     <input type="text" name="email"/>
