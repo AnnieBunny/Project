@@ -17,7 +17,12 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    authService.loginUser(req.body)
+    const {email, password} = req.body;
+    console.log(111111)
+
+    console.log(req.body)
+
+    authService.loginUser(email, password)
         .then(token => {
             res.cookie(COOKIE_NAME, token, {httpOnly: true});
 

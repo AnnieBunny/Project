@@ -5,7 +5,7 @@ import * as authService from '../../services/authService'
 
 const Registration = ({history}) => {
 
-    const onRegistrationSbmit = (e) => {
+    const onRegistrationSubmit = (e) => {
         e.preventDefault();
 
         const {email, password, repeatPassword} = e.target;
@@ -24,7 +24,7 @@ const Registration = ({history}) => {
         <div>
             <div className={styles["authForm"]}>
 
-                <form onSubmit={onRegistrationSbmit} >
+                <form onSubmit={onRegistrationSubmit} >
                     <label htmlFor="email">Email</label>
                     <br/>
                     <input type="text" name="email"/>

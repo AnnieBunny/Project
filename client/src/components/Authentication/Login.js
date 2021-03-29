@@ -1,13 +1,30 @@
 
 
 import styles from './Login.module.css'
-const Login = () => {
+import * as authService from '../../services/authService'
+
+
+const Login = ({history}) => {
+    const onLoginSubmit = (e) => {
+        e.preventDefault();
+        console.log(e.target);
+
+        const {email, password} = e.target;
+        authService.login(email.value, password.value)
+        .then(() => {
+            history.push('/');
+        })
+        
+
+        
+
+    }
 
     return (
         <div className={styles["user-home"]}>
         <div>
         <div className={styles["authForm"]}>
-            <form  method="POST">
+            <form onSubmit= {onLoginSubmit}>
                 <label htmlFor="email">Email </label>
                 <br/>
                 <input type="text" name="email"/>
