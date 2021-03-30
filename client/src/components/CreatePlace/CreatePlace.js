@@ -18,8 +18,8 @@ const CreatePlace = ({
         
 
     }
-
     return (
+        
         <div className={styles["backround-pic"]}>
         <div>
         <div className={styles["placeForm"]}>
@@ -46,8 +46,8 @@ const CreatePlace = ({
             </form>
         </div>
     </div>
-
     </div>
+
     )
 }
 
