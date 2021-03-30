@@ -1,17 +1,29 @@
+import {useState, useEffect} from 'react'
+
 import styles from './HomeUser.module.css'
-import Place from '../Place/Place'
+import Place from './PlaceCard/PlaceCard'
 
-const HomeUser = ({
- 
+import {getAll} from '../../services/placeService'
 
-   
-}) => {
+
+const HomeUser = ({match}) => {
+
+    let place = match.parms;
+
+    const [places, setPlace] = useState([]);
+
+    useEffect(()=>{
+        getAll(place)
+        .then(res => setPlace(res))
+    }, [])
   
     return(
        
         <div className={styles["user-home"]}>
         <div className={styles["column"]}>
-        <Place />
+            {places.map(x => 
+              <Place key={x.id} {...x} />  )}
+     
     </div>
     </div>
 

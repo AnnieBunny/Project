@@ -1,9 +1,10 @@
-import styles from './Place.module.css'
+import styles from './PlaceCard.module.css'
 
 const Place = ({
     country,
     description,
-    imageUrl
+    imageUrl,
+
 }) => {
 
     return (
