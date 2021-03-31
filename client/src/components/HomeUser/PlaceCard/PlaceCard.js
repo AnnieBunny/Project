@@ -16,7 +16,7 @@ const Place = ({
                 <h2 id={styles["town-info"]}>{country}</h2>
                 <p id={styles["town-info"]}>{description}</p>
                 <div className={styles["pet-info"]}>
-                <Link to={`/pets/details/`}><button className={styles["button"]}>Details</button></Link>
+                <Link to={`/places/weather/:city`}><button className={styles["button"]}>Weather</button></Link>
                 <Link to={`/pets/details/`}><button className={styles["button"]}>Edit</button></Link>
 
             </div>
