@@ -4,7 +4,7 @@ const Weather = () => {
     return (
         <div className={styles["user-home"]}>
             <div class={styles["container"]}>
-                <h2>The weather is</h2>
+                <h2 id={styles["weather-title"]}>The weather is </h2>
 
             </div>
             <div className={styles["forecast-table"]}>
