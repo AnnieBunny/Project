@@ -1,4 +1,5 @@
 import styles from './PlaceCard.module.css'
+import {Link} from 'react-router-dom'
 
 const Place = ({
     country,
@@ -14,8 +15,15 @@ const Place = ({
             <div className={styles["container"]}>
                 <h2 id={styles["town-info"]}>{country}</h2>
                 <p id={styles["town-info"]}>{description}</p>
+                <div className={styles["pet-info"]}>
+                <Link to={`/pets/details/`}><button className={styles["button"]}>Details</button></Link>
+                <Link to={`/pets/details/`}><button className={styles["button"]}>Edit</button></Link>
+
             </div>
+            </div>
+        
         </div>
+       
         </div>
     )
 }
