@@ -40,7 +40,7 @@ const CreatePlace = ({
                 <input type="text" name="imageUrl"/>
                 <br/>
 
-                <input id="submitPlace" type="submit"/>
+                <input id="submitPlace" type="submit" value="Submit"/>
                 <p className="error-notification"></p>
 
             </form>
