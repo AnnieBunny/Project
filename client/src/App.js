@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/add-place" component={CreatePlace }></Route>
 
 
-        <Route exact path="/user" component={HomeUser}></Route>
+        <Route exact path="/my-places" component={HomeUser}></Route>
         <Route exact path="/login" component={Login}></Route>
         <Route exact path="/register" component={Registration}></Route>
 
