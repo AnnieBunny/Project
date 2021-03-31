@@ -15,6 +15,13 @@
 
 }
 
+#home-title{
+   font-family: 'Times New Roman', Times, serif;
+
+   color: black;
+   padding-top: 20px;
+}
+
 
 .container {
     margin-right: auto;
