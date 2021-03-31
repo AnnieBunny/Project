@@ -10,6 +10,8 @@ import CreatePlace from './components/CreatePlace/CreatePlace'
 import HomeUser from './components/HomeUser/HomeUser'
 import Login from './components/Authentication/Login';
 import Registration from './components/Authentication/Registration';
+import Weather from './components/Weather/Weather';
+
 
 
 function App() {
@@ -17,8 +19,10 @@ function App() {
     <div className="App">
       <Navigation />
       <Switch>
-        <Route exact path="/about-Us" component={AboutUs}></Route>
         <Route exact path="/" component={HomeGuest}></Route>
+        <Route exact path="/about-Us" component={AboutUs}></Route>
+        <Route exact path="/places/weather/:city" component={Weather}></Route>
+        
         <Route exact path="/add-place" component={CreatePlace }></Route>
 
 
