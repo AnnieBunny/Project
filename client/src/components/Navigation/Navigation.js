@@ -8,7 +8,7 @@ const Navigation = () => {
             <Link to="/">TravelLover</Link>
             <Link to="/about-Us">About Us</Link>
             ---------------------------------------
-            <Link to="/top-Places">TOP Places</Link>
+            <Link to="/contact-us">Contact Us</Link>
             <Link to="/my-places">My places</Link>
             <Link to="/add-place">Add place</Link>
 
