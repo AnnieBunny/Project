@@ -36,7 +36,7 @@ const Login = ({history}) => {
                        name="password"/>
                 <br/>
 
-                <input id="loginBtn" type="submit"/>
+                <input id="loginBtn" type="submit" value ="Submit"/>
                 <p className="error-notification"></p>
 
             </form>

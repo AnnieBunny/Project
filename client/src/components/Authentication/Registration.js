@@ -41,7 +41,7 @@ const Registration = ({history}) => {
                     <input  type="password"
                            name="repeatPassword"/>
 
-                    <input id="registerBtn" type="submit"/>
+                    <input id="registerBtn" type="submit" value ="Submit"/>
                     <p className="error-notification"></p>
 
                 </form>
