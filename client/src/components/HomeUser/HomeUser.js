@@ -20,12 +20,12 @@ const HomeUser = ({match}) => {
     return(
        
         <div className={styles["user-home"]}>
-        <div className={styles["column"]}>
+        
             {places.map(x => 
               <Place key={x.id} {...x} />  )}
      
     </div>
-    </div>
+   
 
     )
 
