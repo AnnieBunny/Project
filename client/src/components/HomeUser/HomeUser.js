@@ -19,11 +19,12 @@ const HomeUser = ({match}) => {
   
     return(
        
-        <div className={styles["user-home"]}>
+    <div className={styles["user-home"]}>
         <h1 id={styles["home-title"]}>Your dream list :)</h1>
-            {places.map(x => 
-              <Place key={x.id} {...x} />  )}
-    
+            <div className = {styles["cardDiv"]}>
+                {places.map(x => 
+                <Place key={x.id} {...x} />  )}
+            </div>
     </div>
    
 
