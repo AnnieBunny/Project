@@ -1,5 +1,20 @@
 import styles from './Weather.module.css'
-const Weather = () => {
+import { useEffect, useState } from 'react'
+import { getWeather } from '../../services/weatherService';
+
+const Weather = ({ match }) => {
+     
+    const [weather, setWeather] = useState({});
+
+    useEffect(() => {
+        getWeather(match.params.city)
+            .then(res => {
+                setWeather(res)
+                console.log(res)
+            })
+    }, [])
+
+
 
     return (
         <div className={styles["user-home"]}>
@@ -14,18 +29,18 @@ const Weather = () => {
                             </div>
 
                             <div className={styles["forecast-content"]}>
-                                <div className={styles["location"]}>New York</div>
+                                <div className={styles["location"]}>{match.params.city}</div>
 
                             </div>
                         </div>
-                        
-                      
+
+
                         <div className={styles["forecast"]}>
-                         
+
                             <div className={styles["forecast-content"]}>
 
                                 <div className={styles["degree"]}>23<sup>o</sup>C</div>
-                               
+
                             </div>
                         </div>
                     </div>
