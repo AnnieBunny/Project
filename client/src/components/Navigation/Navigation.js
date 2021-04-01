@@ -7,7 +7,7 @@ const Navigation = () => {
         <div className={styles["topnav"]}>
             <Link to="/">TravelLover</Link>
             <Link to="/about-Us">About Us</Link>
-            ---------------------------------------
+
             <Link to="/contact-us">Contact Us</Link>
             <Link to="/my-places">My places</Link>
             <Link to="/add-place">Add place</Link>
