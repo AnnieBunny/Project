@@ -6,6 +6,7 @@ import Navigation from './components/Navigation/Navigation'
 import AboutUs from './components/AboutUs/AboutUs'
 import Footer from './components/Footer/Footer'
 import CreatePlace from './components/CreatePlace/CreatePlace'
+import ContactUs from './components/ContactUs/ContactUs'
 
 import HomeUser from './components/HomeUser/HomeUser'
 import Login from './components/Authentication/Login';
@@ -21,6 +22,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomeGuest}></Route>
         <Route exact path="/about-Us" component={AboutUs}></Route>
+        <Route exact path="/contact-Us" component={ContactUs}></Route>
+
         <Route exact path="/places/weather/:city" component={Weather}></Route>
         
         <Route exact path="/add-place" component={CreatePlace }></Route>

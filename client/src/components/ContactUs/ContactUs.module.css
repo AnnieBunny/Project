@@ -1,0 +1,70 @@
+.background-page {
+    
+    background-image: url("https://previews.123rf.com/images/o0matze0o/o0matze0o1805/o0matze0o180500018/101535114-website-and-internet-contact-us-page-concept-with-hanging-icons-in-front-of-a-silver-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: chocolate; */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+  
+  /* Style the container/contact section */
+  .container {
+    border-radius: 70px;
+    background-color: #4c6aec;
+    padding: 50px;
+  }
+  
+  /* Create two columns that float next to eachother */
+  .column {
+    float: right;
+    width: 50%;
+    margin-top: 3px;
+    padding: 3px;
+  }
+
+  .column-left {
+    float: left;
+    width: 50%;
+    margin-top: 3px;
+    padding: 3px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    /* clear: both; */
+   
+  }
+#information-gmail{
+    font-size: 20px;
+    
+    margin: 20px;
+      font-weight: 500;
+      color: rgb(134, 3, 3);
+  }
+
+  #information-instagram{
+    font-size: 20px;
+    margin: 20px;
+      font-weight: 500;
+      color: rgb(78, 231, 7);
+  }
+
+  #information-facebook{
+    font-size: 20px;
+    margin: 20px;
+      font-weight: 500;
+      color: rgb(29, 5, 238);
+  }
+
+  #information {
+    text-shadow: 2px 2px 5px red;
+    margin: 70px;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(17, 16, 15);
+  }
