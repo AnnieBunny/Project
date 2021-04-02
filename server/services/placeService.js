@@ -21,10 +21,8 @@ async function update(id, data) {
     return await Place.updateOne({ _id: id }, data);
 }
 
-async function deletePlace(id, userId) {
-    await Place.deleteOne({ _id: id });
-    await User.updateOne({ _id: userId }, { $pull: { createdSells: id } });
-    return;
+ function deletePlace(id) {
+    return Place.deleteOne({ _id: id });
 }
 
 module.exports = {

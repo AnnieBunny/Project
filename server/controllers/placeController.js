@@ -35,9 +35,13 @@ router.get('/specific/:id', (req, res) => {
         .catch(err => console.log(err))
 });
 
+router.get('/delete/:id' , (req,res) =>{
+    console.log(req.params.id)
+    placeService.deletePlace(req.params.id)
+    .catch(err=> console.log(err))
 
-// router.post('/edit/:id', (req, res) => {
+})
 
-// })
+
 
 module.exports = router;

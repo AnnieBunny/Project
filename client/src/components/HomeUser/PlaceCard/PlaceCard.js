@@ -1,13 +1,33 @@
 import styles from './PlaceCard.module.css'
 import {Link} from 'react-router-dom'
+import {deletePlace} from '../../../services/placeService'
+
+// import {Redirect} from 'react-router-dom'
 
 const Place = ({
-    _id,
+  _id,
     country,
     description,
     imageUrl,
+    history
+  
 
 }) => {
+
+ 
+    const onDeleteHandler = () =>{
+        console.log(33333333)
+  
+        console.log( history)
+        deletePlace(_id)
+        .then(()=> history.push('/'))
+        .catch(err => console.log(err))
+    
+    
+
+    }
+
+
 
     return (
         <div className={styles["column"]}>
@@ -19,7 +39,7 @@ const Place = ({
                 <div className={styles["pet-info"]}>
                 <Link to={`/places/weather/${country}`}><button className={styles["button"]}>Weather</button></Link>
                 <Link to={`/pets/details/`}><button className={styles["button"]}>Edit</button></Link>
-                <Link to={`/places/weather/${_id}`}><button className={styles["button"]}>Delete</button></Link>
+                <Link to={`/places/delete/${_id}`}><button className={styles["button"]} onClick={onDeleteHandler}>Delete</button></Link>
 
             </div>
             </div>

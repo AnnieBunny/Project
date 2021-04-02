@@ -15,6 +15,7 @@ import Weather from './components/Weather/Weather';
 
 
 
+
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/contact-Us" component={ContactUs}></Route>
 
         <Route exact path="/places/weather/:city" component={Weather}></Route>
+        <Route exact path="`/places/delete/:cityId"></Route>
         
         <Route exact path="/add-place" component={CreatePlace }></Route>
 
