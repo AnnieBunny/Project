@@ -3,16 +3,21 @@ import { useEffect, useState } from 'react'
 import { getWeather } from '../../services/weatherService';
 
 const Weather = ({ match }) => {
-     
-    const [weather, setWeather] = useState({});
+
+    const [temp, setTemp] = useState(0);
 
     useEffect(() => {
         getWeather(match.params.city)
+
             .then(res => {
-                setWeather(res)
-                console.log(res)
+                let tempInCel =(Number(res['main']['temp']) - 273.15).toFixed(0);
+                console.log(tempInCel)
+                setTemp(tempInCel);
+               
+
             })
-    }, [])
+    }, [match.params.city])
+   
 
 
 
@@ -39,7 +44,7 @@ const Weather = ({ match }) => {
 
                             <div className={styles["forecast-content"]}>
 
-                                <div className={styles["degree"]}>23<sup>o</sup>C</div>
+                                <div className={styles["degree"]}>{temp}<sup>o</sup>C</div>
 
                             </div>
                         </div>
