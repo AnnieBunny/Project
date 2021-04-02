@@ -2,6 +2,7 @@ import styles from './PlaceCard.module.css'
 import {Link} from 'react-router-dom'
 
 const Place = ({
+    _id,
     country,
     description,
     imageUrl,
@@ -18,6 +19,7 @@ const Place = ({
                 <div className={styles["pet-info"]}>
                 <Link to={`/places/weather/${country}`}><button className={styles["button"]}>Weather</button></Link>
                 <Link to={`/pets/details/`}><button className={styles["button"]}>Edit</button></Link>
+                <Link to={`/places/weather/${_id}`}><button className={styles["button"]}>Delete</button></Link>
 
             </div>
             </div>
