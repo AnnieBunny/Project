@@ -11,7 +11,7 @@ const CreatePlace = ({
         const {country, description, imageUrl} = e.target;
         placeService.create(country.value, description.value, imageUrl.value)
         .then(() => {
-            history.push('/');
+            history.push('/my-places');
         })
         
 

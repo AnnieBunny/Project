@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 
 
 router.get('/specific/:id', (req, res) => {
-    Place.findById(req.params.id)
+    placeService.getSpecific(req.params._id)
         .then(place => {
             res.status(200).json(place);
         })
@@ -42,6 +42,14 @@ router.get('/delete/:id' , (req,res) =>{
 
 })
 
+router.post('/edit/:id', (req,res) => {
+    placeService.update(req.params.id, req.body)
+    .then(res => {
+        res.json()
+    })
+    .catch(err=> console.log(err))
+
+})
 
 
 module.exports = router;

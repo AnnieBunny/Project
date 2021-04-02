@@ -22,8 +22,7 @@ const HomeUser = ({match}) => {
     <div className={styles["user-home"]}>
         <h1 id={styles["home-title"]}>Your dream list :)</h1>
             <div className = {styles["cardDiv"]}>
-                {places.map(x => 
-                <Place key={x._id} {...x} />  )}
+                {places.map(x => <Place key={x._id} {...x} />)}
             </div>
     </div>
    

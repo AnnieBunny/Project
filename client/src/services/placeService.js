@@ -11,33 +11,56 @@ export const getAll = () => {
         .catch(error => console.log(error));
 };
 
-export const create = (country, description, imageUrl) =>{
-   
+export const create = (country, description, imageUrl) => {
+
 
     let place = {
-        country, 
-        description, 
+        country,
+        description,
         imageUrl
     };
 
-    return fetch(`${url}/places/create`,{
+    return fetch(`${url}/places/create`, {
         method: "POST",
-        headers:{ "Content-Type":"application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(place)
     })
-        
+
 };
 
 
-export const deletePlace = (_id)=>  {
+export const deletePlace = (_id) => {
 
     return fetch(`${url}/places/delete/${_id}`, {
-        method : "GET"
+        method: "GET"
     })
-    .then(res => {
-    console.log(2222222)
+        .then(res => {
+            console.log(2222222)
 
-        console.log(res.json())
-    })
-    .catch(err => console.log(err))
+            console.log(res.json())
+        })
+        .catch(err => console.log(err))
 }
+export const getOne = (_id) => {
+    return fetch(`${url}/specific/${_id}`,{
+        'Content-Type': 'application/json',
+    })
+        .then(res => {
+
+            console.log(1111111111)
+            res.json()
+        })
+        .catch(error => console.log(error));
+};
+
+
+
+export const update = (_id, place) => {
+    return fetch(`${url}/places/${_id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(place)
+    });
+};

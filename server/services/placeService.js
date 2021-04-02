@@ -12,7 +12,7 @@ async function getAll(userId) {
     return await Place.find({ creator: userId }).lean();
 }
 
-async function getSpecific(id, userId) {
+async function getSpecific(id) {
     let place = await Place.findById(id).lean();
     return place;
 }
