@@ -1,6 +1,6 @@
 import styles from './EditPlace.module.css'
 
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 import * as placeService from '../../services/placeService'
 
@@ -9,31 +9,40 @@ const EditPlace = ({
     match,
     history,
 }) => {
+
+
     const [place, setPlace] = useState({});
     useEffect(() => {
-       placeService.getOne(match.params.id)
-            .then(res => setPlace(res));
+        placeService.getOne(match.params.id)
+            .then(res => {
+                setPlace(res)});
     }, [])
 
-
+console.log(place);
     const onDescriptionSaveSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target);
+      
 
-        let placeId = match.params._id;
+
+      
 
         let updatedPlace = {
-            country: e.target.country.value, 
+            country: e.target.country.value,
             description: e.target.description.value,
-            imageUrl : e.target.imageUrl.value
+            imageUrl: e.target.imageUrl.value
         };
 
-        placeService.update(placeId, updatedPlace)
-            .then(() => {
+     
+
+        placeService.update(match.params.id, updatedPlace)
+            .then((res) => {
+            
                 history.push(`/my-places`);
+               
                 return;
             });
     }
+
 
     // const onDescriptionChangeHandler = (e) => {
     //     console.log(e.target.value);
@@ -44,35 +53,35 @@ const EditPlace = ({
     //         setErrorMessage('');
     //     }
     // };
-    
+
     return (
         <div className={styles["backround-pic"]}>
-        <div>
-        <div className={styles["placeForm"]}>
-            <form onSubmit = {onDescriptionSaveSubmit}>
-                <label htmlFor="country">City</label>
-                <br/>
-                <input type="country" name="country"/>
-                <br/>
+            <div>
+                <div className={styles["placeForm"]}>
+                    <form onSubmit={onDescriptionSaveSubmit}>
+                        <label htmlFor="country">City</label>
+                        <br />
+                        <input type="country" name="country" defaultValue={place.country} />
+                        <br />
 
-                <label htmlFor="description">Description</label>
-                <br/>
-                <textarea type="text"
-                       name="description"/>
-                <br/>
+                        <label htmlFor="description">Description</label>
+                        <br />
+                        <textarea type="text"
+                            name="description" defaultValue={place.description}/>
+                        <br />
 
-                <label htmlFor="imageUrl">ImageUrl </label>
-                <br/>
-                <input type="text" name="imageUrl"/>
-                <br/>
+                        <label htmlFor="imageUrl">ImageUrl </label>
+                        <br />
+                        <input type="text" name="imageUrl" defaultValue={place.imageUrl}/>
+                        <br />
 
-                <input id="submitPlace" type="submit" value="Submit"/>
-                <p className="error-notification"></p>
+                        <input id="submitPlace" type="submit" value="Submit" />
+                        <p className="error-notification"></p>
 
-            </form>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
     )
 }
 

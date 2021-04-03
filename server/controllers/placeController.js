@@ -23,33 +23,34 @@ router.get('/', (req, res) => {
             res.status(200).json(places);
         })
         .catch(err => res.status(500).json(err))
-})
+});
 
 
 
 router.get('/specific/:id', (req, res) => {
-    placeService.getSpecific(req.params._id)
+    
+ placeService.getSpecific(req.params.id)
         .then(place => {
+  
             res.status(200).json(place);
         })
         .catch(err => console.log(err))
 });
 
 router.get('/delete/:id' , (req,res) =>{
-    console.log(req.params.id)
+    
     placeService.deletePlace(req.params.id)
     .catch(err=> console.log(err))
 
-})
+});
 
-router.post('/edit/:id', (req,res) => {
+router.post('/edit-place/:id', (req, res) => {
+    
     placeService.update(req.params.id, req.body)
-    .then(res => {
-        res.json()
-    })
+    .then(newPlace => res.status(200).json(newPlace))
     .catch(err=> console.log(err))
 
-})
+});
 
 
 module.exports = router;

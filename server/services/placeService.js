@@ -17,8 +17,10 @@ async function getSpecific(id) {
     return place;
 }
 
-async function update(id, data) {
-    return await Place.updateOne({ _id: id }, data);
+async function update(id, place) {
+    let placeUpdated = await Place.updateOne( {_id: id}, place);
+    return placeUpdated;
+    
 }
 
  function deletePlace(id) {

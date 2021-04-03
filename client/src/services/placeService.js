@@ -1,6 +1,6 @@
 const url = 'http://localhost:4000';
 
-//http://localhost:4000/places/create
+//http://localhost:4000/places/
 
 //-------GET All PLACES---------//
 
@@ -42,22 +42,20 @@ export const deletePlace = (_id) => {
         .catch(err => console.log(err))
 }
 export const getOne = (_id) => {
-    return fetch(`${url}/specific/${_id}`,{
-        'Content-Type': 'application/json',
+    return fetch(`${url}/places/specific/${_id}`,{
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
     })
-        .then(res => {
-
-            console.log(1111111111)
-            res.json()
-        })
+        .then(res => res.json())
         .catch(error => console.log(error));
 };
 
 
 
 export const update = (_id, place) => {
-    return fetch(`${url}/places/${_id}`, {
-        method: 'PUT',
+    console.log(_id, place);
+    return fetch(`${url}/places/edit-place/${_id}`, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
