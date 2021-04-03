@@ -65,7 +65,7 @@ const CreatePlace = ({
         <div>
         <div className={styles["placeForm"]}>
             <form onSubmit={onCreatePlaceSbmit}>
-                <label htmlFor="country">Country </label>
+                <label htmlFor="country">City </label>
                 <br/>
                 <InputError>{errorMessageForCity}</InputError>
 
