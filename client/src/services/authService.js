@@ -33,3 +33,10 @@ export const login = (email, password)=> {
 
 };
 
+export const logout = () => {
+    return fetch(`${url}/auth/logout`, {
+        method: "GET",
+        headers:{ "Content-Type":"application/json"},
+    })
+}
+

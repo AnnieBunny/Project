@@ -1,6 +1,11 @@
 
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
+
+import * as authService from '../../client/src/services/authService'
+import * as placeService from '../../client/src/services/placeService'
+
 
 
 import HomeGuest from './components/HomeGuest/HomeGuest'
@@ -34,13 +39,23 @@ function App() {
         
         <Route exact path="/add-place" component={CreatePlace }></Route>
         <Route exact path="/places/edit-place/:id" component={EditPlace}></Route>
+        <Route path="/delete/:id" render={(_id) => {
+    
+          placeService.deletePlace(_id);
+          return <Redirect to="/my-places" />
+        }} />
 
 
 
 
         <Route exact path="/my-places" component={HomeUser}></Route>
         <Route exact path="/login" component={Login}></Route>
-        <Route exact path="/register" component={Registration}></Route>
+        <Route exact path="/register" component={Registration}></Route> 
+         <Route path="/logout" render={() => {
+          authService.logout();
+          return <Redirect to="/" />
+        }} />
+
 
     
       </Switch>
