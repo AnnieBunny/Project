@@ -59,14 +59,18 @@ const EditPlace = ({
 
     const onCityChangeHandler = (e) => {
         let cityText = e.target.value;
+        console.log(cityText);
         let regex = /^[A-za-z]+/;
-        regex.test(cityText)
-
-        if (cityText) {
-            setErrorMessageForCity('Should be a letter and should start with upper character');
-        } else {
+      
+        if (regex.test(cityText)) {
             setErrorMessageForCity('');
+
+        } else {
+            setErrorMessageForCity('Should be a letter and should start with upper character');
+
         }
+        console.log(regex.test(cityText));
+
     };
 
 
@@ -75,12 +79,14 @@ const EditPlace = ({
     const onImageUrlChangeHandler = (e) => {
         let imageURL = e.target.value;
         let regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-        regex.test(imageURL)
+     
 
-        if (imageURL) {
-            setErrorMessageForImageUrl('Should be valid link adress');
-        } else {
+        if (regex.test(imageURL)) {
             setErrorMessageForImageUrl('');
+
+        } else {
+            setErrorMessageForImageUrl('Should be valid link adress');
+
         }
     };
 
