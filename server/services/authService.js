@@ -11,11 +11,24 @@ async function registerUser(email, password) {
     return await user.save();
 }
 
-async function loginUser({ email, password }) {
+async function loginUser( email, password ) {
+
+    console.log(22222222);
+    console.log(email)
+    console.log(password)
+
+
     let user = await User.findOne({ email });
     if (!user) throw { message: 'Invalid email or password' };
+    console.log(user)
+
+  
+
 
     let hasValidPass = await bcrypt.compare(password, user.password);
+ 
+    console.log(hasValidPass)
+
     if (!hasValidPass) throw { message: "Invalid email or password" }
 
     let token = jwt.sign({ _id: user._id, email: user.email }, SECRET, { expiresIn: '1h' });

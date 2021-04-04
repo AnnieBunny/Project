@@ -25,7 +25,7 @@ export const login = (email, password)=> {
       
     };
 
-   return fetch(`/auth/login`, {
+   return fetch(`${url}/auth/login`, {
         method: "POST",
         headers:{ "Content-Type":"application/json"},
         body: JSON.stringify(loginUser)
