@@ -1,5 +1,5 @@
 import styles from './PlaceCard.module.css'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {deletePlace} from '../../../services/placeService'
 
 
@@ -19,8 +19,11 @@ const Place = ({
     const onDeleteHandler = () =>{
     
         deletePlace(_id)
-        
-  
+        .then(() => {
+            console.log(111111111111)
+            return <Redirect to='/my-places'/>
+            
+        })
         .catch(err => console.log(err))
     
     }

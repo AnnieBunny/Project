@@ -9,3 +9,12 @@
         flex-direction: column;
         min-height: 100vh;
     }
+.home-title{
+    font-weight: 600;
+    color: black;
+}
+
+#text{
+    font-weight: 600;
+    color: black;
+}

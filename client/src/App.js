@@ -39,11 +39,7 @@ function App() {
         
         <Route exact path="/add-place" component={CreatePlace }></Route>
         <Route exact path="/places/edit-place/:id" component={EditPlace}></Route>
-        <Route path="/delete/:id" render={(_id) => {
-    
-          placeService.deletePlace(_id);
-          return <Redirect to="/my-places" />
-        }} />
+        
 
 
 

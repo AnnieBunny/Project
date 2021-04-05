@@ -34,11 +34,9 @@ export const deletePlace = (_id) => {
     return fetch(`${url}/places/delete/${_id}`, {
         method: "GET"
     })
-        .then(res => {
-            console.log(2222222)
-
-            console.log(res.json())
-        })
+    .then(() => {
+        
+    })
         .catch(err => console.log(err))
 }
 export const getOne = (_id) => {
