@@ -40,3 +40,11 @@ export const logout = () => {
     })
 }
 
+
+export const getUser = () => {
+
+    return fetch (`${url}/auth/getUser`)
+            .then((res) => res.json())
+            .then(data => data)
+            .catch(err=> console.log(err))
+};

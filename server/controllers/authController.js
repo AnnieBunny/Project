@@ -5,6 +5,17 @@ const authService = require('../services/authService');
 const { SECRET, COOKIE_NAME } = require('../config/config');
 const jwt = require('jsonwebtoken');
 
+
+router.get('/getUser', (req, res) => {
+    const user = req.user
+
+    if (user) {
+        res.json(user)
+    } else {
+        res.json({message: 'No user found'})
+    }
+});
+
 router.post('/register', async (req, res) => {
     const {email, password, repeatPassword} = req.body;
     try {
@@ -18,7 +29,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', (req, res) => {
     const {email, password} = req.body;
-    console.log(111111)
+ 
 
     console.log(req.body)
 
