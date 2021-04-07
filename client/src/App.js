@@ -2,7 +2,7 @@
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import {Redirect} from 'react-router-dom'
-import {Context} from '../src/Context/Context'
+
 
 import * as authService from '../../client/src/services/authService'
 import * as placeService from '../../client/src/services/placeService'
@@ -24,17 +24,20 @@ import Login from './components/Authentication/Login';
 import Registration from './components/Authentication/Registration';
 import Weather from './components/Weather/Weather';
 import { useContext, useEffect } from 'react';
+import {UserProvider} from '../src/Context/Context'
 
 
 
 
 function App() {
 
-  const [userData, setUserData] = useContext(Context);
+  // const [userData, setUserData] = useContext(UserContext);
 
   return (
     <div className="App">
+      <UserProvider>
       <Navigation />
+     
       <Switch>
         <Route exact path="/" component={HomeGuest}></Route>
         <Route exact path="/about-Us" component={AboutUs}></Route>
@@ -45,7 +48,7 @@ function App() {
         <Route exact path="/add-place" component={CreatePlace }></Route>
         <Route exact path="/places/edit-place/:id" component={EditPlace}></Route>
         
-        <Route exact path="/my-places" component={userData? HomeUser : HomeGuest}></Route>
+        <Route exact path="/my-places" component={ HomeUser}></Route>
         <Route exact path="/login" component={Login}></Route>
         <Route exact path="/register" component={Registration}></Route> 
          <Route path="/logout" render={() => {
@@ -55,7 +58,7 @@ function App() {
 
       </Switch>
       <Footer />
-
+      </UserProvider>
     </div>
   );
 }

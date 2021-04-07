@@ -1,8 +1,15 @@
 import styles from './Navigation.module.css'
 import { Link } from 'react-router-dom'
+import {useUser} from '../../Context/Context'
 
 const Navigation = () => {
+    let user = useUser();
+
+    console.log(user);
+
+
     return (
+        
 
         <div className={styles["topnav"]}>
             <Link to="/">TravelLover</Link>

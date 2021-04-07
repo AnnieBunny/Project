@@ -1,18 +1,18 @@
-import { useState, useEffect ,useContext } from 'react'
+import { useState, useEffect } from 'react'
+import {useUser} from '../../Context/Context'
 
 import styles from './HomeUser.module.css'
 import Place from './PlaceCard/PlaceCard'
 import HomeUserWithoutPlaces from './HomeUserWithoutPlace/HomeUserWithoutPlaces'
 
 import { getAll } from '../../services/placeService'
-import {ContextStore} from '../../Context/Context'
+
 
 import {Redirect} from 'react-router-dom'
 
 
 const HomeUser = ({ match }) => {
-    const { userData, setUserData } = useContext(ContextStore)
-
+    let user = useUser();
 
     let place = match.parms;
 

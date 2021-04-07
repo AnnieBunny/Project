@@ -1,26 +1,20 @@
-import React, { useState, useEffect, createContext, useMemo } from 'react';
-import { getUser } from '../services/authService';
-export const Context = React.createContext();
+import React, { useContext, useState } from 'react';
+const UserContext = React.createContext();
 
-export const ContextStore = ({ children }) => {
+export const useUser = () => {
+    return useContext(UserContext);
+}
+
+export const UserProvider = ({ children }) => {
     let initialValue = null;
     const [userData, setUserData] = useState(initialValue)
     
-    useEffect(() => {
-        
-        fetch(`/auth/getUser`).then(res => res.json())
-        .then(res => {
-            return setUserData(res.user)
-        })
+  
 
-    }, [])
-
-    console.log(userData)
-    const providerValue = useMemo(() => ({ userData, setUserData }), [userData, setUserData])
 
     return (
-        <Context.Provider value={providerValue}>
+        <UserContext.Provider value={userData}>
             {children}
-        </Context.Provider>
+        </UserContext.Provider>
     )
 }
