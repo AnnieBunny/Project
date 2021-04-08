@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom'
 
 import * as authService from '../../client/src/services/authService'
 import * as placeService from '../../client/src/services/placeService'
-
+import {UserContext} from './Context'
 
 
 import HomeGuest from './components/HomeGuest/HomeGuest'
@@ -23,20 +23,31 @@ import HomeUser from './components/HomeUser/HomeUser'
 import Login from './components/Authentication/Login';
 import Registration from './components/Authentication/Registration';
 import Weather from './components/Weather/Weather';
-import { useContext, useEffect } from 'react';
-import {UserProvider} from '../src/Context/Context'
+import { useEffect, useState} from 'react';
+
 
 
 
 
 function App() {
 
-  // const [userData, setUserData] = useContext(UserContext);
+  const [userState, setUser] = useState({ user : {}})
+
+  useEffect(() => {
+    
+  }, []) 
+
+  
 
   return (
     <div className="App">
-      <UserProvider>
-      <Navigation />
+
+  
+<UserContext.Provider value={userState} >
+<Navigation />
+</UserContext.Provider>
+
+      
      
       <Switch>
         <Route exact path="/" component={HomeGuest}></Route>
@@ -58,7 +69,7 @@ function App() {
 
       </Switch>
       <Footer />
-      </UserProvider>
+    
     </div>
   );
 }

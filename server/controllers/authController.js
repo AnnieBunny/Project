@@ -6,9 +6,11 @@ const { SECRET, COOKIE_NAME } = require('../config/config');
 const jwt = require('jsonwebtoken');
 
 
-router.get('/getUser', (req, res) => {
-    const user = req.user
-
+router.post('/getUser', (req, res) => {
+    const user = req.body
+    console.log('================ GET USER');
+console.log(req.body)
+console.log('================');
     if (user) {
         res.json(user)
     } else {
@@ -30,9 +32,9 @@ router.post('/register', async (req, res) => {
 router.post('/login', (req, res) => {
     const {email, password} = req.body;
  
-
+    console.log('================ LOGIN');
     console.log(req.body)
-
+    console.log('================');
     authService.loginUser(email, password)
         .then(token => {
             res.cookie(COOKIE_NAME, token, {httpOnly: true});

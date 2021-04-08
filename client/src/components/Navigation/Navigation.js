@@ -1,23 +1,30 @@
 import styles from './Navigation.module.css'
+import {useContext} from 'react'
 import { Link } from 'react-router-dom'
-import {useUser} from '../../Context/Context'
+import { Context } from '../../Context'
 
 const Navigation = () => {
-    let user = useUser();
+   
 
-    console.log(user);
+    // const {userData, setUserData}  = useContext(Context);
 
 
     return (
         
 
         <div className={styles["topnav"]}>
+             
             <Link to="/">TravelLover</Link>
-            <Link to="/about-Us">About Us</Link>
-
-            <Link to="/contact-us">Contact Us</Link>
             <Link to="/my-places">My places</Link>
             <Link to="/add-place">Add place</Link>
+        
+            <Link to="/">TravelLover</Link>
+             <Link to="/about-Us">About Us</Link>
+            <Link to="/contact-us">Contact Us</Link>
+        
+        
+           
+          
 
             
 

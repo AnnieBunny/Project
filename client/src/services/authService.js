@@ -21,8 +21,7 @@ export const login = (email, password)=> {
 
     let loginUser = {
         email,
-        password,
-      
+        password
     };
 
    return fetch(`${url}/auth/login`, {
@@ -41,10 +40,18 @@ export const logout = () => {
 }
 
 
-export const getUser = () => {
+export const getUser = (email, password) => {
+    let user = {
+        email,
+        password
+    };
 
-    return fetch (`${url}/auth/getUser`)
-            .then((res) => res.json())
-            .then(data => data)
+
+    return fetch (`${url}/auth/getUser`, {
+        method: "POST",
+        headers:{ "Content-Type":"application/json"},
+        body: JSON.stringify(user)
+    })
+            .then((res) =>{ console.log(res.json()) })
             .catch(err=> console.log(err))
 };

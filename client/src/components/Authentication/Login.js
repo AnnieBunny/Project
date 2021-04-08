@@ -1,10 +1,14 @@
 
+import {useState, useEffect} from 'react'
+import {UserContext} from '../../Context'
 
 import styles from './Login.module.css'
 import * as authService from '../../services/authService'
 
 
 const Login = ({history}) => {
+    
+
     const onLoginSubmit = (e) => {
         e.preventDefault();
         console.log(e.target);
@@ -12,13 +16,13 @@ const Login = ({history}) => {
         const {email, password} = e.target;
         authService.login(email.value, password.value)
         .then(() => {
-            history.push('/');
+            history.push('/')
         })
-        
-
-        
-
     }
+
+    
+
+   
 
     return (
         <div className={styles["user-home"]}>

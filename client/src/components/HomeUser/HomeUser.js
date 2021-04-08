@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import {useUser} from '../../Context/Context'
+import {useUser} from '../../Context'
 
 import styles from './HomeUser.module.css'
 import Place from './PlaceCard/PlaceCard'
@@ -9,16 +9,19 @@ import { getAll } from '../../services/placeService'
 
 
 import {Redirect} from 'react-router-dom'
+import { getUser } from '../../services/authService'
 
 
 const HomeUser = ({ match }) => {
-    let user = useUser();
+  
 
     let place = match.parms;
 
     const [places, setPlace] = useState([]);
 
     useEffect(() => {
+        getUser()
+        
         getAll(place)
             .then(res => setPlace(res))
     }, []);
