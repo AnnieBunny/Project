@@ -1,44 +1,60 @@
 import styles from './Navigation.module.css'
-import {useContext} from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Context } from '../../Context'
+import { logout } from '../../services/authService'
 
 const Navigation = () => {
-   
 
-    // const {userData, setUserData}  = useContext(Context);
+    const [user, setUser] = useState(true)
+    let usertoken = localStorage.getItem('token')
 
+    useEffect(() => {
+        logout()
+        .then (() => {
+            setUser(false)
+        })
+       
 
+    }, [])
+
+  
+  
     return (
-        
 
-        <div className={styles["topnav"]}>
-             
-            <Link to="/">TravelLover</Link>
-            <Link to="/my-places">My places</Link>
-            <Link to="/add-place">Add place</Link>
         
-            <Link to="/">TravelLover</Link>
-             <Link to="/about-Us">About Us</Link>
-            <Link to="/contact-us">Contact Us</Link>
-        
-        
-           
-          
-
             
+    <div className = { styles["topnav"]} >
+ 
+             
+            <Link to="/my-places">My places</Link>
+            
+            <Link to="/">TravelLover</Link>
 
-            <div className={styles["right-nav"]}>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-                <Link to="/logout">Logout</Link>
+ <Link to="/add-place">Add place</Link>
+               
+             
+                    
+               
+               
+                    
+        
+
+{/*         
+           <Link to = "/about-Us">About Us</Link>
+           <Link to="/contact-us">Contact Us</Link>  */}
+  
+<div className={styles["right-nav"]}>
+    <Link to="/login">Login</Link>
+    <Link to="/register">Register</Link>
+    <Link to="/logout" >Logout</Link>
 
 
-            </div>
+</div>
 
 
 
-        </div>
+        </div >
 
 
     )

@@ -34,13 +34,17 @@ router.get('/specific/:id', (req, res) => {
   
             res.status(200).json(place);
         })
-        .catch(err => console.log(err))
+        .catch(err =>res.status(500).json(err))
 });
 
 router.get('/delete/:id' , (req,res) =>{
     
     placeService.deletePlace(req.params.id)
-    .catch(err=> console.log(err))
+    .then((res)=> { 
+
+        res.status(200)
+    })
+    .catch(err=> res.status(500).json(err))
 
 });
 
@@ -48,7 +52,7 @@ router.post('/edit-place/:id', (req, res) => {
     
     placeService.update(req.params.id, req.body)
     .then(newPlace => res.status(200).json(newPlace))
-    .catch(err=> console.log(err))
+    .catch(err=> res.status(500).json(err))
 
 });
 

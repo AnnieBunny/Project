@@ -1,6 +1,7 @@
 import styles from './PlaceCard.module.css'
-import {Link, Redirect} from 'react-router-dom'
+import {Link, Redirect, useHistory} from 'react-router-dom'
 import {deletePlace} from '../../../services/placeService'
+
 
 
 const Place = ({
@@ -15,15 +16,19 @@ const Place = ({
 
 }) => {
 
- 
+    let history = useHistory()
     const onDeleteHandler = () =>{
-    
+    console.log(11111111111);
         deletePlace(_id)
         .then(() => {
-            console.log(111111111111)
-            return <Redirect to='/my-places'/>
-            
+           
+            history.push('/my-places')
         })
+        
+
+            
+            
+    
         .catch(err => console.log(err))
     
     }

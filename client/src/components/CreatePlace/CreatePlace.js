@@ -1,3 +1,6 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 import styles from './CreatePlace.module.css'
 import * as placeService from '../../services/placeService'
@@ -10,6 +13,7 @@ const CreatePlace = ({
 }) => {
     const onCreatePlaceSbmit = (e) => {
         e.preventDefault();
+        
 
         const {country, description, imageUrl} = e.target;
         placeService.create(country.value, description.value, imageUrl.value)
@@ -63,6 +67,8 @@ const CreatePlace = ({
         }
     };
 
+    const notify = () => toast("Wow so easy!");
+
 
     return (
         
@@ -88,11 +94,12 @@ const CreatePlace = ({
                 <br/>
                 <InputError>{errorMessageForImageUrl}</InputError>
                    
-                <input type="text" name="imageUrl" onBlur={onImageUrlChangeHandler}/>
+                <input type="text" name="imageUrl" onBlur={onImageUrlChangeHandler} />
+                
                 <br/>
                 
-                <input id="submitPlace" type="submit" value="Submit"/>
-              
+                <input id="submitPlace" type="submit" value="Submit" onSubmit={notify}/>
+                <ToastContainer />
 
             </form>
         </div>

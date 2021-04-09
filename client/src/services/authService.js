@@ -29,6 +29,7 @@ export const login = (email, password)=> {
         headers:{ "Content-Type":"application/json"},
         body: JSON.stringify(loginUser)
     })
+    .then(res => res.json())
 
 };
 

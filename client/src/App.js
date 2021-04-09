@@ -31,26 +31,15 @@ import { useEffect, useState} from 'react';
 
 function App() {
 
-  const [userState, setUser] = useState({ user : {}})
-
-  useEffect(() => {
-    
-  }, []) 
-
-  
 
   return (
     <div className="App">
 
   
-<UserContext.Provider value={userState} >
-<Navigation />
-</UserContext.Provider>
 
-      
-     
+<Navigation />
       <Switch>
-        <Route exact path="/" component={HomeGuest}></Route>
+        <Route exact path="/" component={HomeGuest} ></Route>
         <Route exact path="/about-Us" component={AboutUs}></Route>
         <Route exact path="/contact-Us" component={ContactUs}></Route>
 
@@ -64,6 +53,10 @@ function App() {
         <Route exact path="/register" component={Registration}></Route> 
          <Route path="/logout" render={() => {
           authService.logout();
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+        
+
           return <Redirect to="/" />
         }} />
 

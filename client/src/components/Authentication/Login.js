@@ -15,8 +15,12 @@ const Login = ({history}) => {
 
         const {email, password} = e.target;
         authService.login(email.value, password.value)
-        .then(() => {
-            history.push('/')
+        .then((res) => {
+    
+           localStorage.setItem("user", res.email);
+           localStorage.setItem("token", res.token);
+
+            history.push('/my-places')
         })
     }
 

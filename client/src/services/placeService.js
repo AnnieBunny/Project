@@ -35,7 +35,7 @@ export const deletePlace = (_id) => {
         method: "GET"
     })
     .then(() => {
-        
+        console.log(333333333333333);
     })
         .catch(err => console.log(err))
 }

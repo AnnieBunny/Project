@@ -37,15 +37,17 @@ router.post('/login', (req, res) => {
     console.log('================');
     authService.loginUser(email, password)
         .then(token => {
-            res.cookie(COOKIE_NAME, token, {httpOnly: true});
+            // res.cookie(COOKIE_NAME, token, {httpOnly: true});
 
-            jwt.verify(token, SECRET, (err, decoded) => {
-                if (err) {
-                    res.clearCookie(COOKIE_NAME);
-                } else {
-                    res.status(200).json(decoded);
-                }
-            })
+            // jwt.verify(token, SECRET, (err, decoded) => {
+            //     if (err) {
+            //         res.clearCookie(COOKIE_NAME);
+            //     } else {
+            //         res.status(200).json(decoded);
+            //     }
+            // })
+           
+            res.send({'token' : token, email })
 
         }).catch((error) => res.status(500).json(error))
 });
