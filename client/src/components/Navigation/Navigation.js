@@ -42,7 +42,7 @@ const Navigation = (props) => {
 
         <div className={styles["topnav"]} >
 
-            {props.isLoggedin &&( <Link to="/my-places">My places</Link> ) }
+            {props.token &&( <Link to="/my-places">My places</Link> ) }
             {props.isLoggedin &&( <Link to="/add-place">Add place</Link> ) }
             {!props.isLoggedin &&( <Link to="/">TravelLover</Link> ) }
             {!props.isLoggedin &&( <Link to="/about-Us">About Us</Link> ) }

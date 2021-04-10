@@ -9,7 +9,7 @@ import styles from './Login.module.css'
 import * as authService from '../../services/authService'
 
 toast.configure()
-const Login = ({history}) => {
+const Login = ({history, setToken}) => {
     
 
     const onLoginSubmit = (e) => {
@@ -24,7 +24,8 @@ const Login = ({history}) => {
     
            localStorage.setItem("user", res.email);
            localStorage.setItem("token", res.token);
-
+           setToken(res.token);
+           console.log('res.token=====' + res.token);
             history.push('/my-places')
         })
 

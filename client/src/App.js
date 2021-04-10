@@ -28,48 +28,18 @@ import React, { useEffect, useState } from 'react';
 
 
 
-const token = localStorage.getItem('token');
 
-class App extends React.Component {
+function App () {
 
-  constructor(props) {
+  const [token, setToken] = useState();
 
-    super(props);
 
-  //   this.state = {
-  //     hasSession : false
-
-  //   }
-  // }
-
-  // updateSessionStatus = (hasSession) => {
-  //   this.setState({hasSession});
-  // }
-
-  this.state = { isAuthenticated: false };
-  }
-
-  login = () => {
-    this.setState({ isAuthenticated: true });
-  }
-
-  logout = () => {
-    this.setState({ isAuthenticated: false });
-  }
-
-  
-render () {
-
-  const { isAuthenticated } = this.state;
-
-  
 
 
   return (
     <div className="App">
-      <Navigation isLoggedin={isAuthenticated} logout={this.logout}
-        // hasSession= { this.state.hasSession}
-        // updateSessionStatus= { this.updateSessionStatus}
+      <Navigation
+        token = {token}
       />
       <Switch>
         <Route exact path="/" component={HomeGuest} ></Route>
@@ -82,7 +52,7 @@ render () {
         <Route exact path="/places/edit-place/:id" component={EditPlace}></Route>
 
         <Route exact path="/my-places" component={HomeUser}></Route>
-        <Route exact path="/login" component={Login}></Route>
+        <Route exact path="/login"  render ={props => <Login {...props} setToken={setToken} />} ></Route>
         <Route exact path="/register" component={Registration}></Route>
         <Route path="/logout" render={() => {
           authService.logout();
@@ -97,5 +67,5 @@ render () {
     </div>
   );
 }
-}
+
 export default App;
