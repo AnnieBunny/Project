@@ -31,7 +31,17 @@ import React, { useEffect, useState } from 'react';
 
 function App () {
 
-  const [token, setToken] = useState();
+ const token = localStorage.getItem('token')
+ const [isLoggedIn, setisLoggedIn] = useState(false);
+
+
+ if(token) {
+  return setisLoggedIn(true)
+ }
+ console.log(isLoggedIn);
+
+  
+  
 
 
 
@@ -39,7 +49,7 @@ function App () {
   return (
     <div className="App">
       <Navigation
-        token = {token}
+        isLoggedIn = {isLoggedIn}
       />
       <Switch>
         <Route exact path="/" component={HomeGuest} ></Route>
@@ -52,7 +62,7 @@ function App () {
         <Route exact path="/places/edit-place/:id" component={EditPlace}></Route>
 
         <Route exact path="/my-places" component={HomeUser}></Route>
-        <Route exact path="/login"  render ={props => <Login {...props} setToken={setToken} />} ></Route>
+        <Route exact path="/login"  render ={props => <Login {...props} isLoggedIn ={isLoggedIn}  />} ></Route>
         <Route exact path="/register" component={Registration}></Route>
         <Route path="/logout" render={() => {
           authService.logout();
