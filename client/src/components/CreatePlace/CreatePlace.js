@@ -85,21 +85,21 @@ const CreatePlace = ({
                     <form onSubmit={onCreatePlaceSbmit}>
                         <label htmlFor="country">City </label>
                         <br />
-                        <InputError>{errorMessageForCity}</InputError>
+                        
 
                         <input type="country" name="country" onBlur={onCityChangeHandler} />
                         <br />
 
                         <label htmlFor="description">Description</label>
                         <br />
-                        <InputError>{errorMessage}</InputError>
+                       
                         <textarea type="text"
                             name="description" onBlur={onDescriptionChangeHandler} />
                         <br />
 
                         <label htmlFor="imageUrl">ImageUrl </label>
                         <br />
-                        <InputError>{errorMessageForImageUrl}</InputError>
+                        
 
                         <input type="text" name="imageUrl" onBlur={onImageUrlChangeHandler} />
 

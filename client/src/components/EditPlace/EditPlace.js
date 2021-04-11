@@ -1,11 +1,14 @@
 import styles from './EditPlace.module.css'
 import InputError from '../InputError/InputError'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useState, useEffect } from 'react'
 
 import * as placeService from '../../services/placeService'
 
-
+toast.configure()
 const EditPlace = ({
     match,
     history,
@@ -49,6 +52,7 @@ const EditPlace = ({
     const onDescriptionChangeHandler = (e) => {
         if (e.target.value.length < 5) {
             setErrorMessage('Description too short');
+            toast.error("Description too short")
         } else {
             setErrorMessage('');
         }
@@ -67,6 +71,7 @@ const EditPlace = ({
 
         } else {
             setErrorMessageForCity('Should be a letter and should start with upper character');
+            toast.error("Should be a letter and should start with upper character")
 
         }
         console.log(regex.test(cityText));
@@ -86,6 +91,7 @@ const EditPlace = ({
 
         } else {
             setErrorMessageForImageUrl('Should be valid link adress');
+            toast.error("Should be valid link adress")
 
         }
     };
@@ -97,16 +103,16 @@ const EditPlace = ({
                     <form onSubmit={onDescriptionSaveSubmit}>
                         <label htmlFor="country">City</label>
                         <br />
-                        <InputError>{errorMessageForCity}</InputError>
+                        
                         <input type="country" name="country" defaultValue={place.country} onBlur={onCityChangeHandler}/>
                         <br />
                         <label htmlFor="description">Description</label>
                         <br />
-                        <InputError>{errorMessage}</InputError>
+                      
                         <textarea type="text"
                             name="description" defaultValue={place.description} onBlur={onDescriptionChangeHandler} />
                         <br />
-                        <InputError>{errorMessageForImageUrl}</InputError>
+                        
 
                         <label htmlFor="imageUrl">ImageUrl </label>
                         <br />
@@ -115,7 +121,16 @@ const EditPlace = ({
                         <br />
 
                         <input id="submitPlace" type="submit" value="Submit" />
-                        <p className="error-notification"></p>
+                        <ToastContainer position="top-center"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover />
+
 
                     </form>
                 </div>

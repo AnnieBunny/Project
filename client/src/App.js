@@ -35,10 +35,10 @@ function App () {
  const [isLoggedIn, setisLoggedIn] = useState(false);
 
 
- if(token) {
-  return setisLoggedIn(true)
- }
- console.log(isLoggedIn);
+//  if(token) {
+//   return setisLoggedIn(true)
+//  }
+//  console.log(isLoggedIn);
 
   
   

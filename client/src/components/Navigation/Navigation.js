@@ -42,11 +42,11 @@ const Navigation = (props) => {
 
         <div className={styles["topnav"]} >
 
-            {props.token &&( <Link to="/my-places">My places</Link> ) }
-            {props.isLoggedin &&( <Link to="/add-place">Add place</Link> ) }
-            {!props.isLoggedin &&( <Link to="/">TravelLover</Link> ) }
-            {!props.isLoggedin &&( <Link to="/about-Us">About Us</Link> ) }
-            {!props.isLoggedin&&(<Link to="/contact-us">Contact Us</Link> ) }
+            <Link to="/my-places">My places</Link> 
+            <Link to="/add-place">Add place</Link>
+         <Link to="/">TravelLover</Link> 
+            <Link to="/about-Us">About Us</Link> 
+          <Link to="/contact-us">Contact Us</Link> 
 
             <div className={styles["right-nav"]}>
                 <Link to="/login">Login</Link>
