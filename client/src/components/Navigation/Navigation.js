@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import { Context } from '../../Context'
 import { logout } from '../../services/authService'
 
-const Navigation = (props) => {
+const Navigation = ({ token }) => {
 
 
-    let usertoken = localStorage.getItem('token');
+    // let usertoken = localStorage.getItem('token');
     // console.log("---------")
     // console.log("hasSesion = " + props.hasSession)
 
@@ -16,15 +16,15 @@ const Navigation = (props) => {
 
     // console.log("token : " + usertoken)
 
-//     const [token , setToken ] = useState(usertoken)
+    //     const [token , setToken ] = useState(usertoken)
 
-// useEffect(() => {
-//     logout()
-//     .then(() => setToken(null))
+    // useEffect(() => {
+    //     logout()
+    //     .then(() => setToken(null))
 
-// })
+    // })
 
-    
+
 
     // logout()
     //     .then(() => {
@@ -42,18 +42,40 @@ const Navigation = (props) => {
 
         <div className={styles["topnav"]} >
 
-            <Link to="/my-places">My places</Link> 
-            <Link to="/add-place">Add place</Link>
-         <Link to="/">TravelLover</Link> 
-            <Link to="/about-Us">About Us</Link> 
-          <Link to="/contact-us">Contact Us</Link> 
+            {token !== null ?
+                <>
+                    ( <Link to="/my-places">My places</Link>
+                    <Link to="/add-place">Add place</Link>)
+                </>
+
+                :
+                <>
+                    (<Link to="/">TravelLover</Link>
+                    <Link to="/about-Us">About Us</Link>
+                    <Link to="/contact-us">Contact Us</Link>  )
+                </>
+            }
+
+
+
+
 
             <div className={styles["right-nav"]}>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-                <Link to="/logout" >Logout</Link>
 
+                {token !== null ?
+                    <>
+                        ( <Link to="/logout" >Logout</Link>
+                        )
+                     </>
 
+                    :
+                    <>
+                        (<Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
+                         )
+                    </>
+                }
+        
             </div>
 
 

@@ -20,7 +20,7 @@ const HomeUser = ({ match }) => {
     const [places, setPlace] = useState([]);
 
     useEffect(() => {
-        getUser()
+        
         
         getAll(place)
             .then(res => setPlace(res))

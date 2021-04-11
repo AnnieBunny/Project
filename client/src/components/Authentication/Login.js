@@ -9,8 +9,8 @@ import styles from './Login.module.css'
 import * as authService from '../../services/authService'
 
 toast.configure()
-const Login = ({history, isLoggedIn}) => {
-    console.log(isLoggedIn)
+const Login = ({history, token}) => {
+    
 
     const onLoginSubmit = (e) => {
         e.preventDefault();
@@ -26,8 +26,9 @@ const Login = ({history, isLoggedIn}) => {
            localStorage.setItem("token", res.token);
         //    setToken(res.token);
         //    console.log('res.token=====' + setToken(res.token));
-        isLoggedIn = true;
-            history.push('/my-places')
+        token = res.token;
+        history.push('/my-places')
+
         })
 
     }
